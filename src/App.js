@@ -1,6 +1,9 @@
 import Form from './EmpolyeeReg/Components/Form';
 import './App.css';
+import './index.css';
 import Table from './EmpolyeeReg/Components/Table';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+// import MockApi from './EmpolyeeReg/Service/MockApi';
 
 function App() {
   return (
@@ -8,16 +11,17 @@ function App() {
       <BrowserRouter>
     <Routes>
 
-     {/* <Route path='/EmpolyeeRegform'  element={<Form/>}    ></Route> */}
-     {/* <Route path='/EmpolyeeRegtable'  element={<Table/>}    ></Route> */}
+     <Route path='/'  element={<Form/>}    ></Route>
+     <Route path='/regtable'  element={<Table/>}    ></Route>
 
 
     </Routes>
     
     </BrowserRouter>
-     
-      <Form/>
-      <Table/>
+    {/* <Form/> */}
+      {/* 
+      <Table/> */}
+      {/* <MockApi/> */}
     </div>
   );
 }

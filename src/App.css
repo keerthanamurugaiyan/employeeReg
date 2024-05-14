@@ -7,12 +7,31 @@ body {
     /* font-family: Arial, sans-serif; */
     margin: 0;
     padding: 0;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    background-image: url(/public/form2.avif);
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    /* padding: 2rem; */
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
 }
 
+/* body::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    height: 100%; 
+    width: 100%;
+} */
+/* bodycont{
+    position:relative;
+    z-index: 1;
+} */
+
 .container {
-    border: 1px dotted;
+    border: 2px blueviolet dotted;
     /* padding: 80px; */
     max-width: 400px;
     margin-top: 50px;
@@ -22,11 +41,13 @@ body {
     padding: 50px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .header h1 {
     text-align: center;
+    justify-content: center;
+    display: flex;
 }
 
 .content {

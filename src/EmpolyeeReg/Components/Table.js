@@ -4,8 +4,8 @@ function Table() {
     return (
         <>
 
-    <div class="container">
-        <h1>Employee List</h1>
+    <div className="containerTable">
+        <h1 className='list'>Employee List</h1>
         <table>
             <thead>
                 <tr>
@@ -21,6 +21,10 @@ function Table() {
             
             </tbody>
         </table>
+
+        <button className='backbtn'>Back</button>
+
+
     </div>
 
 
