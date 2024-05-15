@@ -4,14 +4,14 @@ import { CREATE_INPUT, GET_INPUT, DELETE_INPUT, GETBYID_INPUT, UPDATE_INPUT } fr
 
 export const createinput = (input) => {
   return async (dispatch) => {
-    const response = await axios.get('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/student', input);
+    const response = await axios.post('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/student', input);
     dispatch({ type: CREATE_INPUT, payload: response.data });
   };
 };
 
 export const updateinput = (id, input) => {
   return async (dispatch) => {
-    const response = await axios.update('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/${id}', input);
+    const response = await axios.put('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/${id}', input);
     dispatch({ type: UPDATE_INPUT, payload: response.data });
   };
 };

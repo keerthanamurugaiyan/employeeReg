@@ -1,24 +1,36 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import '../../App.css';
 import { createinput } from '../Reducer/Action/Action';
+import { useNavigate } from 'react-router-dom';
 
 
 function Form() {
 
+    const handleGenderChange = (e) => {
+        setGender(e.target.value);
+      };
+    
+
     const [employeeid,setEmployeeid]= useState("")
     const [fullName,setFullName]= useState("")
+    const [email,setEmail] = useState("")
 
+    const [gender,setGender]= useState("")
+    const [department,setDepartment]= useState("");
+    const [position,setPosition]= useState("")
+const nav = useNavigate()
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
       e.preventDefault();
     
-        dispatch(createinput({ employeeid , fullName, }));
-     
+        dispatch(createinput({ employeeid , fullName, email, gender, department, position}));
+  nav("/regtable")
     };
   
     return (
-        <>
+        <div className='formbody'>
                     
                 <div className="container">
         
@@ -51,30 +63,62 @@ function Form() {
                                 required/>
                             </div>
 
-                            <div className='form-group gender'>
+                            <div className="form-group gender">
                                 <label for="gender">Gender:</label>
-                    
-                                <input id="maleg" value="male" type="radio" name="gender"/>
+                                <input
+                                    id="male"
+                                    value="male"
+                                    type="radio"
+                                    className="formredio"
+                                    name="gender"
+                                    checked={gender === 'male'}
+                                    onChange={handleGenderChange} />
                                 <label for="male">Male</label>
-
-                                <input id="femaleg" value="female" type="radio" name="gender"></input>
-                                <label for='female'>Female</label>
                                 
-                            </div>
+                                <input
+                                    id="female"
+                                    value="female"
+                                    type="radio"
+                                    name="gender"
+                                    checked={gender === 'female'}
+                                    onChange={handleGenderChange}/>
+                                <label for="female">Female</label>
+                                
+                                <input
+                                    id="other"
+                                    value="other"
+                                    type="radio"
+                                    name="gender"
+                                    checked={gender === 'other'}
+                                    onChange={handleGenderChange}/>
+                                <label for="other">Other</label>
+                                </div>
+
+
+                            <div class="form-group">
+                            <label for="department" class="fw-bold">Department :</label>
+                            <input list="dep" id="ment" placeholder="Select your Department"
+                            value={department}
+                            onChange={(e) => setDepartment(e.target.value)}
+                            required/>
+                            <datalist id="dep" >
+                                <option value="HR(Human Resources)"></option>
+                                <option value="IT(Information Technology)"></option>
+                                <option value="Design"></option>
+                                <option value="Testing"></option>
+                                <option value="Operations"></option>
+                                <option value="Finance"></option>
+                                <option value="Marketing"></option>
+                                <option value="cybersecurity "></option>
+                            </datalist>
+                            {/* <div className="error text-danger" id="lanError"></div> */}
+                        </div>
                 
                             <div className="form-group">
-                                <label for="password">Password:</label>
-                                <input type="password" id="password" name="password" 
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required/>
-                            </div>
-                
-                            <div className="form-group">
-                                <label for="confirmPassword">Confirm Password:</label>
-                                <input type="password" id="confirmPassword" name="confirmPassword" 
-                                value={confirmpassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                <label for="position">Position :</label>
+                                <input type="text" id="position" name="position" 
+                                value={position}
+                                onChange={(e) => setPosition(e.target.value)}
                                 required/>
                             </div>
                 
@@ -84,7 +128,7 @@ function Form() {
             </div>
         
         
-        </>
+        </div>
     )
 }
 

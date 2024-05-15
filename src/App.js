@@ -1,6 +1,6 @@
 import Form from './EmpolyeeReg/Components/Form';
-import './App.css';
-import './index.css';
+import './EmpolyeeReg/Components/Style.css';
+// import './index.css';
 import Table from './EmpolyeeReg/Components/Table';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 // import MockApi from './EmpolyeeReg/Service/MockApi';
