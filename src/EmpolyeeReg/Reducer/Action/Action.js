@@ -8,17 +8,29 @@ export const createinput = (input) => {
     dispatch({ type: CREATE_INPUT, payload: response.data });
   };
 };
-
 export const updateinput = (id, input) => {
   return async (dispatch) => {
-    const response = await axios.put('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/${id}', input);
-    dispatch({ type: UPDATE_INPUT, payload: response.data });
+    try {
+      const response = await axios.put(`https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/student/${id}`, input);
+      dispatch({ type: UPDATE_INPUT, payload: response.data });
+    } catch (error) {
+      console.error('Error updating input:', error);
+    }
   };
 };
 
+
+// export const updateinput = (id,input) => {
+//   return async (dispatch) => {
+//     const response = await axios.put(`https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/student/${id}`, input);
+//     dispatch({ type: UPDATE_INPUT, payload: response.data });
+//   };
+// };
+
+
 export const deleteinput = (id) => {
   return async (dispatch) => {
-    await axios.delete('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/${id}');
+    await axios.delete(`https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/student/${id}`);
     dispatch({ type: DELETE_INPUT, payload: id });
   };
 };
@@ -32,7 +44,7 @@ export const getinput = () => {
 
 export const getbyid = (id) => {
   return async (dispatch) => {
-    const response = await axios.get('https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/${id}');
+    const response = await axios.get(`https://65b77a0946324d531d54ac37.mockapi.io/Employeeregistor/student/${id}`);
     dispatch({ type: GETBYID_INPUT, payload: response.data });
   };
 };

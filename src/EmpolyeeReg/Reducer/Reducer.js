@@ -20,7 +20,7 @@ const Reducer = (state = initialState, action) => {
     case DELETE_INPUT:
       return {
         ...state,
-        inputs: state.inputs.filter((input) => input.id !== action.payload),
+        inputs: [...state.inputs.filter((input) => input.id !== action.payload)],
       };
     case GET_INPUT:
       return {

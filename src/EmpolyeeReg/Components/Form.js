@@ -40,7 +40,7 @@ const nav = useNavigate()
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label for="empID">Employee ID :</label>
-                                <input type="text" id="empID" name="empID"
+                                <input type="text" id="empID" name="empID" placeholder='Enter Your Employee Id'
                                 value={employeeid}
                                 onChange={(e) => setEmployeeid(e.target.value)}
                         
@@ -49,7 +49,7 @@ const nav = useNavigate()
                 
                             <div className="form-group">
                                 <label for="fullName">Full Name :</label>
-                                <input type="text" id="fullName" name="fullName"
+                                <input type="text" id="fullName" name="fullName" placeholder='Enter Your FullName'
                                  value={fullName}
                                  onChange={(e) => setFullName(e.target.value)}
                                  required/>
@@ -57,7 +57,7 @@ const nav = useNavigate()
                 
                             <div className="form-group">
                                 <label for="email">Email :</label>
-                                <input type="email" id="email" name="email" 
+                                <input type="email" id="email" name="email" placeholder='Enter Your Email' 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required/>
@@ -116,13 +116,13 @@ const nav = useNavigate()
                 
                             <div className="form-group">
                                 <label for="position">Position :</label>
-                                <input type="text" id="position" name="position" 
+                                <input type="text" id="position" name="position" placeholder='Enter Your Position'
                                 value={position}
                                 onChange={(e) => setPosition(e.target.value)}
                                 required/>
                             </div>
                 
-                            <button type="submit">Register</button>
+                            <button className='regbtn' type="submit">Register</button>
                 </form>
              </div>
             </div>

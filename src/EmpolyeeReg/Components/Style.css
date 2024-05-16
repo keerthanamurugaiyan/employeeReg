@@ -3,21 +3,105 @@
     margin: 0%;
 }
 
-body {
+.formbody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(/public/form3.avif);
+  background-position: center;
+  position: relative;
+  background-size: cover;
+  padding: 100px;
+  /* margin-left: 30px; */
+  /* opacity: 0.5; */
+}
+
+.container {
+  width: 400px;
+  background-color: #f4f4f4;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input{
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: -12px;
+  box-shadow: #007bff;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.regbtn {
+  width: 105%;
+  background-color: rgb(37, 3, 68);
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  margin: 8px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: -11px;
+  font-weight: bolder;
+}
+
+.regbtn:hover {
+  background-color: rgb(63, 8, 109);
+} 
+
+.gender {
+  display: flex;
+  align-items: center;
+}
+
+.gender label {
+  margin-right: 35px;
+}
+
+
+/* .formbody { */
     /* font-family: Arial, sans-serif; */
-    margin: 0;
-    padding: 0;
-    background-image: url(/public/form3.avif);
-    position: relative;
-    background-position: center;
-    background-size: cover;
+    /* margin: 0 !important;
+    padding: 0 imo !important;
+    background-image: url(/public/form3.avif); */
+    /* position: relative; */
+    /* background-color: rgb(112, 15, 112); */
+    /* background-position: top;
+    background-size: cover; */
     /* background: rgba(216, 247, 216, 0.3); */
     /* opacity: 0.5; */
    
     /* padding: 2rem; */
     /* background: rgb(2,0,36); */
     /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
-}
+/* } */
 
 /* body::before{
     content: "";
@@ -33,19 +117,19 @@ body {
     z-index: 1;
 } */
 
-.container {
-    border: 2px blueviolet dotted;
+/* .container { */
+    /* border: 2px blueviolet dotted; */
     /* padding: 80px; */
-    max-width: 400px;
+    /* max-width: 400px;
     margin-top: 50px;
     margin-left: 33%;
-    margin-bottom: 50px;
+    margin-bottom: 50px; */
     /* margin: 100px auto; */
-    padding: 50px;
+    /* padding: 50px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 5px; */
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-}
+/* }
 
 .header h1 {
     text-align: center;
@@ -81,9 +165,9 @@ input{
     border: 1px solid #ccc;
     width: 35px;
     /* margin-top: 80px; */
-}
+/* } */
 
-button {
+/* button {
     display: block;
     width: 105.4%;
     padding: 10px;
@@ -98,7 +182,7 @@ button {
 
 button:hover {
     background-color: rgb(63, 8, 109);
-}
+} */ */
 
 
 /* .h1{
@@ -114,20 +198,23 @@ button:hover {
 } */
 
 
-/* styles.css */
+/* Table.css */
 .tablebody {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     /* background-color: #f2f2f2; */
-    /* background-image: url(/public/table1.avif); */
+    /* background-image: url(/public/form.jpg); */
     /* background-size: cover; */
     /* background-position: center; */
+    /* background: rgb(167,168,175);
+    background: radial-gradient(circle, rgba(167,168,175,1) 0%, rgba(110,8,29,1) 100%); */
   }
   
   .list{
     justify-content: center;
     display: flex;
+    margin-top: 0px;
   }
   
   .containerTable {
@@ -146,7 +233,7 @@ button:hover {
   
   table {
     /* text-align: center; */
-    /* margin-top: 50px; */
+    margin-top: 40px;
     width: 100%;
     /* border: 1px 1px 1px 1px solid ; */
     /* border-collapse: collapse; */
@@ -194,5 +281,11 @@ button:hover {
   
   .backbtn{
     width: 70px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: whitesmoke;
+    margin-top: 25px;
+    background-color: rgb(43, 6, 78);
   }
   
