@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import '../../App.css';
 import { createinput } from '../Reducer/Action/Action';
 import { useNavigate } from 'react-router-dom';
+import Nav from './Nav';
 
 
 function Form() {
@@ -19,7 +20,7 @@ function Form() {
     const [gender,setGender]= useState("")
     const [department,setDepartment]= useState("");
     const [position,setPosition]= useState("")
-const nav = useNavigate()
+    const nav = useNavigate()
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
@@ -30,6 +31,8 @@ const nav = useNavigate()
     };
   
     return (
+        <>
+        <Nav/>
         <div className='formbody'>
                     
                 <div className="container">
@@ -72,7 +75,7 @@ const nav = useNavigate()
                                     className="formredio"
                                     name="gender"
                                     checked={gender === 'male'}
-                                    onChange={handleGenderChange} />
+                                    onChange={handleGenderChange} required/>
                                 <label for="male">Male</label>
                                 
                                 <input
@@ -81,7 +84,7 @@ const nav = useNavigate()
                                     type="radio"
                                     name="gender"
                                     checked={gender === 'female'}
-                                    onChange={handleGenderChange}/>
+                                    onChange={handleGenderChange} required/>
                                 <label for="female">Female</label>
                                 
                                 <input
@@ -90,7 +93,7 @@ const nav = useNavigate()
                                     type="radio"
                                     name="gender"
                                     checked={gender === 'other'}
-                                    onChange={handleGenderChange}/>
+                                    onChange={handleGenderChange} required/>
                                 <label for="other">Other</label>
                                 </div>
 
@@ -129,6 +132,7 @@ const nav = useNavigate()
         
         
         </div>
+        </>
     )
 }
 

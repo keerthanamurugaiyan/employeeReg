@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import '../../App.css';
 import {  getbyid, updateinput } from '../Reducer/Action/Action';
 import { useNavigate, useParams } from 'react-router-dom';
+import Nav from './Nav';
 
 
 function Edit() {
@@ -19,7 +20,7 @@ function Edit() {
     const [gender,setGender]= useState("")
     const [department,setDepartment]= useState("");
     const [position,setPosition]= useState("")
-const nav = useNavigate()
+    const nav = useNavigate()
     const dispatch = useDispatch();
     const {id} = useParams()
     const inputupdate = useSelector((state) => state.inputs.find(input =>input.id === id));
@@ -61,6 +62,8 @@ const nav = useNavigate()
 
 
     return (
+        <>
+        <Nav/>
         <div className='formbody'>
                     
                 <div className="container">
@@ -160,6 +163,7 @@ const nav = useNavigate()
         
         
         </div>
+        </>
     )
 }
 

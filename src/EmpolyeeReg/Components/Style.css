@@ -8,7 +8,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url(/public/form3.avif);
+  background-color: rgb(245, 211, 231);
+  /* background-image: url(/public/still.png); */
   background-position: center;
   position: relative;
   background-size: cover;
@@ -17,21 +18,81 @@
   /* opacity: 0.5; */
 }
 
+.logo-img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-left: 60px;
+}
+
+/* body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+} */
+
+nav{
+  font-family: Arial,  sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #420342;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-nav{
+  list-style-type: none;
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  /* display: flex; */
+  justify-content: center;
+  /* margin-top: -90px; */
+}
+
+.navbar-left {
+  display: flex;
+}
+
+.nav-link {
+  margin-right: 3rem;
+  list-style-type: none;
+}
+
 .container {
+  margin-top: 40px;
   width: 400px;
   background-color: #f4f4f4;
   padding: 50px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .header {
   text-align: center;
   margin-bottom: 20px;
+  margin-top: -20px;
 }
 
 .content {
   margin-top: 20px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
 .form-group {
@@ -51,6 +112,7 @@ input{
   margin-left: -12px;
   box-shadow: #007bff;
 }
+
 select {
   width: 100%;
   padding: 10px;
@@ -182,7 +244,7 @@ input{
 
 button:hover {
     background-color: rgb(63, 8, 109);
-} */ */
+} */ 
 
 
 /* .h1{
@@ -214,7 +276,7 @@ button:hover {
   .list{
     justify-content: center;
     display: flex;
-    margin-top: 0px;
+    margin-top: 20px;
   }
   
   .containerTable {
@@ -234,7 +296,8 @@ button:hover {
   table {
     /* text-align: center; */
     margin-top: 40px;
-    width: 100%;
+    width: 140%;
+    margin-left: -160px;
     /* border: 1px 1px 1px 1px solid ; */
     /* border-collapse: collapse; */
     border-radius: 5px;
@@ -261,12 +324,80 @@ button:hover {
     background-color: #041c36;
     color: white;
   }
+
+  /* Styling for icon buttons */
+.icon-button {
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 25px;
+  display: flex;
+  display: inline;
+  background-color: transparent;
+  color: #333;
+}
+
+.icon-button:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+/* .spinner-spinner {
+  width: 60px;
+  height: 60px;
+  border: 8px solid rgba(255, 255, 255, 0.3); 
+  border-top-color: #ffffff;
+} */
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.spinner-load {
+  width: 60px;
+  height: 60px;
+  border: 8px solid rgba(255, 255, 255, 0.3); 
+  border-top-color: #ffffff; 
+  border-radius: 50%;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.dailog {
+  position: absolute;
+  top: 300px;
+  padding: 30px;
+  border-radius: 7px;
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  border: none;
+  box-shadow: 0 4px 6px #ebb851;
+}
+
   
   /* tbody tr:nth-child(even) {
     background-color: #f2f2f2;
   } */
   
-  .delete-btn {
+  /* .delete-btn {
     background-color: #dc3545;
     color: white;
     border: none;
@@ -288,4 +419,4 @@ button:hover {
     margin-top: 25px;
     background-color: rgb(43, 6, 78);
   }
-  
+   */
