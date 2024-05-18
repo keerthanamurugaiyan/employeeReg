@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { deleteinput, getinput } from '../Reducer/Action/Action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import Nav from './Nav';
+import { Link, } from 'react-router-dom';
+// import Nav from './Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Spinner from './Spinner';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Table = () => {
   const inputs = useSelector((state) => state.inputs);
@@ -51,20 +52,25 @@ const Table = () => {
   return (
     <>
     {loading && <Spinner/>}
-      <Nav />
+      {/* <Nav /> */}
       <div className='tablebody'>
         <div className="containerTable">
           <h1 className='list'>Employee List</h1>
-          <table>
+          {/* <h3>Add +</h3> */}
+          <table className='stripped-table'>
             <thead>
               <tr>
                 <th>S.NO</th>
                 <th>Employee ID</th>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Phone Number</th>
+                <th>Joining Date</th>
                 <th>Gender</th>
                 <th>Department</th>
                 <th>Position</th>
+                <th>Address</th>
+                <th>Blood Group</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -75,24 +81,31 @@ const Table = () => {
                   <td>{input.employeeid}</td>
                   <td>{input.fullName}</td>
                   <td>{input.email}</td>
+                  <td>{input.phonenumber}</td>
+                  <td>{input.joiningdate}</td>
                   <td>{input.gender}</td>
                   <td>{input.department}</td>
                   <td>{input.position}</td>
+                  <td>{input.address}</td>
+                  <td>{input.bloodgroup}</td>
                   <td>
-                  <button
-                    className='icon-button'
-                      onClick={() => showDialog(input.id)}
-                    >
-                     <FontAwesomeIcon icon={faTrash} />
-                    </button>
+                  
                     {/* <button className='icon-button' onClick={() => handleDelete(input.id)}>
                     
                     </button> */}
                     <Link to={`/form/${input.id}/edit`}>
-                      <button className='icon-button'>
+                      <button className='icon-button s'>
                         <FontAwesomeIcon icon={faEdit} />
                       </button>
                     </Link>
+
+                    <button
+                    className='icon-button n'
+                      onClick={() => showDialog(input.id)}>
+                     <FontAwesomeIcon icon={faTrash} />
+                    </button>
+
+                    
                   </td>
                 </tr>
               ))}
@@ -102,7 +115,9 @@ const Table = () => {
 
           {dialogVisible && (
             <dialog open className="dailog">
-              <h3 className="title-haven">
+              {/* <i className="fas fa-times"></i> */}
+              <p className='con'>conformation notification?</p>
+              <h3 className="title">
                Are you sure you want to delete this!
               </h3>
               
@@ -110,12 +125,13 @@ const Table = () => {
                 
                 <button
                   type="button"
-                  className="yes"
+                  className="dai yes"
                   onClick={() => handleDelete(selectedUserId)}
                 >
                   Yes
                 </button>
-                <button className="no" type="button" onClick={closeDialog}>
+                
+                <button className="dai no" type="button" onClick={closeDialog}>
                   No
                 </button>
               </form>
