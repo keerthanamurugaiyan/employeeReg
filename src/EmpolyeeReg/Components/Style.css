@@ -19,6 +19,17 @@
   /* opacity: 0.5; */
 }
 
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/* .form{
+  margin-top: 100px;
+} */
+
 .logo-img{
   width: 50px;
   height: 50px;
@@ -43,7 +54,7 @@ nav{
   padding: 0.5rem 1rem;
   position: fixed;
   width: 100%;
-  height: 60px;
+  height: 30px;
   color: black;
   top: 0;
   z-index: 1000;
@@ -106,18 +117,19 @@ nav{
 }
 
 .container {
-  margin-top: 100px;
+  margin-top: -50px;
   width: 600px;
   background-color: #f4f4f4;
   padding: 50px;
   border-radius: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
-  margin-top: -20px;
+  margin-top: -38px;
+  font-size: 25px;
 }
 
 .content {
@@ -125,24 +137,28 @@ nav{
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  font-size: 15px;
 }
 
-input{
+.input{
   width: 100%;
-  padding: 10px;
+  height: 25px;
+  padding: 5px;
   font-size: 16px;
   border-radius: 5px;
   margin-left: -12px;
   box-shadow: #007bff;
   border: 2px solid rgb(189, 186, 186);
+  outline: none;
   /* display: flex; */
+  /* margin-top: 10px; */
 }
 
 .emp{
@@ -156,6 +172,7 @@ input{
 }
 
 .add{
+  display: flex;
   width: 255px;
   padding: 10px;
   font-size: 16px;
@@ -167,7 +184,9 @@ input{
 }
 
 .address{
-  margin-left: 125px !important;
+  /* display: flex; */
+  margin-left: 335px !important;
+  margin-top: -85px;
 }
 
 /* .formrdio{
@@ -184,6 +203,32 @@ select {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+} 
+
+.gender {
+  display: flex;
+  /* align-items: center; */
+  /* width: 20%; */
+  flex-direction: row;
+  margin-left: -140px;
+  margin-top: 30px;
+}
+
+.gender label {
+  margin-right: 25px;
+  margin-left: 5px;
+  margin-top: 4px;
+  /* flex-direction: column; */
+  /* display: flex; */
+}
+
+.gen{
+  display: flex;
+  /* gap: 20px; */
+}
+.id{
+  width: 50%;
+  margin-left: 23%;
 }
 
 .regbtn {
@@ -195,30 +240,13 @@ select {
   margin: 8px 0;
   border-radius: 10px;
   cursor: pointer;
-  margin-left: -11px;
+  margin-left: 500px;
   font-weight: bolder;
+  /* align-self: right; */
 }
 
 .regbtn:hover {
   background-color: rgb(63, 8, 109);
-} 
-
-.gender {
-  display: flex;
-  align-items: center;
-  width: 20%;
-  /* flex-direction: column; */
-  /* margin-right: -10px; */
-}
-
-.gender label {
-  margin-right: 25px;
-  margin-left: 5px;
-  /* display: flex; */
-}
-.id{
-  width: 50%;
-  margin-left: 23%;
 }
 
 
@@ -226,93 +254,87 @@ select {
 
 /* Table.css */
 .tablebody {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    /* background-color: #f2f2f2; */
-    /* background-image: url(/public/form.jpg); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background: rgb(167,168,175);
-    background: radial-gradient(circle, rgba(167,168,175,1) 0%, rgba(110,8,29,1) 100%); */
-  }
-  
-  .list{
-    justify-content: center;
-    display: flex;
-    margin-top: 40px;
-  }
-  
-  .containerTable {
-    /* margin-top: 90px; */
-    max-width: 800px;
-    margin-left: 100px;
-    /* background-color: #fff; */
-    border-radius: 5px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    padding: 20px;
-  }
-  
-  .employee-list {
-    padding: 20px;
-  }
-  
-  table {
-    /* text-align: center; */
-    margin-top: 40px;
-    width: 140%;
-    margin-left: -160px;
-    
-    /* border: 1px 1px 1px 1px solid ; */
-    /* border-collapse: collapse; */
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
-
-  table, th, td{
-    border: 1px solid violet;
-  }
-
-  td{
-    text-align: left;
-    background-color: #fff;
-  }
-  
-  th,td {
-    padding: 15px;
-    text-align: center;
-    /* border-bottom: 1px solid #ddd; */
-  }
-  
-  thead {
-    background-color: #041c36;
-    color: white;
-  }
-
-  /* Styling for icon buttons */
-.icon-button {
-  padding: 5px;
-  cursor: pointer;
-  border: none;
-  font-size: 25px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
-  display: inline;
-  background-color: transparent;
-  color: #333;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f9;
 }
 
-/* .n{
-  color: red;
+.list {
+  justify-content: center;
+  /* display: flex; */
+  margin-top: 120px;
+  text-align: center;
 }
 
-.s{
-  color: green;
-} */
+.containerTable {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: -300px;
+  /* margin: 20px auto; Center the container horizontally */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
+  overflow-x: auto; /* Allow horizontal scrolling if table exceeds container width */
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-top: 20px; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+thead {
+  background-color: #041c36;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #dddcdc;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #e9e8e8;
+}
+
+.btned {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 25px;
+  color: rgb(77, 76, 76);
+}
 
 .icon-button:hover {
-  color: #007bff; /* Change color on hover */
- } 
+  color: #007bff;
+}
+
+.con {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.title {
+  margin-bottom: 20px;
+}
+
 
 .spinner-overlay {
   position: fixed;
@@ -338,12 +360,14 @@ select {
 
 @keyframes spin {
   to {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
+
 .dailog {
   position: absolute;
+  position: fixed;
   margin-top: -170px;
   /* top: 300px; */
   padding: 4cap;

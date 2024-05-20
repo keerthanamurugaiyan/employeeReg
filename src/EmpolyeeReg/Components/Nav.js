@@ -5,15 +5,15 @@ const Nav = () => {
   return (
     <nav className="navbar">
       <div className="navbar-right">
-        <img className='logo-img' src='logoe.jpg'/>
+        <img className='logo-img' src='portal_logo.jpg'/>
         <Link className="navbar-brand" to="/">Employee Registration</Link>
       </div>
       <ul className="navbar-nav" id="navbarNav">
         <li className="nav-del">
-          <Link className="nav-link" to="/">Form</Link></li>  
+          <Link className="nav-link" to="/">Create emplyee</Link></li>  
         <p class="styled-pipe">|</p>
         <li className="nav-edit">
-          <Link className="nav-link" to="/regtable">List</Link></li> 
+          <Link className="nav-link" to="/regtable">View emplyee</Link></li> 
       </ul>
     </nav>
     //create employee

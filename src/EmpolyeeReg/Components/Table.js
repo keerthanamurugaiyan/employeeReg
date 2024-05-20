@@ -53,9 +53,11 @@ const Table = () => {
     <>
     {loading && <Spinner/>}
       {/* <Nav /> */}
+      <h1 className='list'>Employee List</h1>
       <div className='tablebody'>
+      
         <div className="containerTable">
-          <h1 className='list'>Employee List</h1>
+          
           {/* <h3>Add +</h3> */}
           <table className='stripped-table'>
             <thead>
@@ -93,6 +95,7 @@ const Table = () => {
                     {/* <button className='icon-button' onClick={() => handleDelete(input.id)}>
                     
                     </button> */}
+                    <div className='btned'>
                     <Link to={`/form/${input.id}/edit`}>
                       <button className='icon-button s'>
                         <FontAwesomeIcon icon={faEdit} />
@@ -104,6 +107,7 @@ const Table = () => {
                       onClick={() => showDialog(input.id)}>
                      <FontAwesomeIcon icon={faTrash} />
                     </button>
+                    </div>
 
                     
                   </td>
