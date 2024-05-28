@@ -5,19 +5,19 @@ const Nav = () => {
   return (
     <nav className="navbar">
       <div className="navbar-right">
-        <img className='logo-img' src='portal_logo.jpg'/>
-        <Link className="navbar-brand" to="/">Employee Registration</Link>
+        {/* <img className='logo-img' src='emplo.jpg' /> */}
+        <img className='logo-img'src='/emplo.jpg' alt='Navbar logo'/>
+        <Link className="navbar-brand" to="/employee/create">Employee Registration</Link>
       </div>
       <ul className="navbar-nav" id="navbarNav">
-        <li className="nav-del">
-          <Link className="nav-link" to="/">Create emplyee</Link></li>  
+        <li className="nav-create">
+          <Link className="nav-link" to="/employee/create">Create emplyee</Link></li>  
         <p class="styled-pipe">|</p>
-        <li className="nav-edit">
-          <Link className="nav-link" to="/regtable">View emplyee</Link></li> 
+        <li className="nav-view">
+          <Link className="nav-link" to="/employee/view">View emplyee</Link></li> 
       </ul>
     </nav>
-    //create employee
-    //view employee
+
   );
 };
 

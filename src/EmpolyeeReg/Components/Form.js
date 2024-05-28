@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { useDispatch } from 'react-redux';
 import '../../App.css';
 import { createinput } from '../Reducer/Action/Action';
 import { useNavigate } from 'react-router-dom';
+import Spinner from './Spinner';
 
 function Form() {
     const [employeeid, setEmployeeid] = useState("");
@@ -19,6 +20,8 @@ function Form() {
     const nav = useNavigate();
     const dispatch = useDispatch();
 
+    const [loading, setLoading] = useState(false);
+
     const handleGenderChange = (e) => {
         setGender(e.target.value);
     };
@@ -34,60 +37,77 @@ function Form() {
     setGender("");
     setAddress("");
  }
-
+    
     const validateInputs = () => {
         let errors = {};
+        const bloodGroupPattern = /^(A|B|AB|O)[+-]$/;
+        const namePattern = /^[A-Za-z\s]+$/;
+    
         if (!employeeid) {
-            errors.employeeid = "Employee ID is required";
+            errors.employeeid = "Employee ID is required!";
         }
         if (!fullName) {
-            errors.fullName = "Full Name is required";
+            errors.fullName = "Full Name is required!";
         } else if (fullName.length < 3) {
-            errors.fullName = "Full Name must be at least 3 characters";
+            errors.fullName = "Full Name must be at least 3 characters!";
+        } else if (!namePattern.test(fullName)) {
+            errors.fullName = "Full Name must contain only letters!";
         }
         if (!email) {
-            errors.email = "Email is required";
+            errors.email = "Email is required!";
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            errors.email = "Please enter a valid email address !";
+            errors.email = "Please enter a valid email address!";
         }
         if (!phonenumber) {
-            errors.phonenumber = "Phone Number is required";
+            errors.phonenumber = "Phone Number is required!";
         } else if (phonenumber.length < 10) {
-            errors.phonenumber = "Phone Number must be at least 10 digits";
+            errors.phonenumber = "Phone Number must be at least 10 digits!";
         }
         if (!joiningdate) {
-            errors.joiningdate = "Joining Date is required";
+            errors.joiningdate = "Joining Date is required!";
         }
         if (!department) {
-            errors.department = "Department is required";
+            errors.department = "Department is required!";
         }
         if (!bloodgroup) {
-            errors.bloodgroup = "Blood Group is required";
+            errors.bloodgroup = "Blood Group is required!";
+        } else if (!bloodGroupPattern.test(bloodgroup)) {
+            errors.bloodgroup = "Please enter a valid blood group (e.g., A+, O-, AB+).";
         }
         if (!position) {
-            errors.position = "Position is required";
+            errors.position = "Position is required!";
         }
         if (!gender) {
-            errors.gender = "Please select a gender";
+            errors.gender = "Please select a gender!";
         }
         if (!address) {
-            errors.address = "Address is required";
+            errors.address = "Address is required!";
         }
-
+    
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
-
-    const handleSubmit = (e) => {
+    
+    const handleSubmit = async (e) => {
         e.preventDefault();
+       
         if (validateInputs()) {
-            dispatch(createinput({ employeeid, fullName, email, phonenumber, joiningdate, department, bloodgroup, position, gender, address }));
-            nav("/regtable");
+            setLoading(true);
+            try {
+                await dispatch(createinput({ employeeid, fullName, email, phonenumber, joiningdate, department, bloodgroup, position, gender, address }));
+                setLoading(false);
+                nav("/employee/view");
+            } catch (error) {
+                setLoading(false);
+                // Handle the error if needed
+                console.error("Failed to create input:", error);
+            }
         }
     };
 
     return (
         <>
+        {loading && <Spinner/>}
             <div className='formbody'>
                 <div className="container">
                     <h1 className='header'>Employee Registration</h1>
@@ -96,7 +116,7 @@ function Form() {
                             <div className='emp'>
                                 <div className="form-group idn">
                                     <label htmlFor="empID">Employee ID :</label>
-                                    <input className='input' type="text" id="empID" name="empID" placeholder='Enter Your Employee Id'
+                                    <input className='input' type="number" id="empID" name="empID" placeholder='Enter Your Employee Id'
                                         value={employeeid}
                                         onChange={(e) => setEmployeeid(e.target.value)}
                                          />
@@ -198,7 +218,6 @@ function Form() {
                                         <label htmlFor="male">Male</label>
                                     </div>
 
-                                    {/* <div> */}
                                         <input className='idn'
                                             id="female"
                                             value="female"
@@ -207,8 +226,7 @@ function Form() {
                                             checked={gender === 'female'}
                                             onChange={handleGenderChange}  />
                                         <label className='' htmlFor="female">Female</label>
-                                    {/* </div> */}
-                                    {/* <div> */}
+                                    
                                         <input className='idn'
                                             id="other"
                                             value="other"
@@ -217,7 +235,6 @@ function Form() {
                                             checked={gender === 'other'}
                                             onChange={handleGenderChange}  />
                                         <label htmlFor="other">Other</label>
-                                    {/* </div> */}
                                 </div>
                                 </div>
                                 {errors.gender && <span className="error">{errors.gender}</span>}
@@ -233,8 +250,10 @@ function Form() {
                                     {errors.address && <span className="error">{errors.address}</span>}
                                 </div>
                             </div>
-<button type='button' onClick={handlereset}>reset</button>
-                            <button className='regbtn' type="submit">Register</button>
+                            <div className='sub'>
+                                <button className='setbtn' type='button' onClick={handlereset}>Reset</button>
+                                <button className='regbtn' type="submit">Register</button>
+                            </div>
                         </form>
                     </div>
                 </div>

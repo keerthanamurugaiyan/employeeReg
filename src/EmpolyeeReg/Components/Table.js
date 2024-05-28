@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { deleteinput, getinput } from '../Reducer/Action/Action';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, } from 'react-router-dom';
-// import Nav from './Nav';
+import { Link, useNavigate, } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import Spinner from './Spinner';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Swal from 'sweetalert2';
 
 const Table = () => {
   const inputs = useSelector((state) => state.inputs);
   const [dialogVisible, setDialogVisible] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState(null)
   const dispatch = useDispatch();
-  // const nav = useNavigate();
+  const nav = useNavigate();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
+  const handlenew = () =>{
+nav("/employee/create")
+  }
   useEffect(() => {
     
     dispatch(getinput());
     setTimeout(
       () => {
-        setLoading(false)
 
       },1000
     )
   }, [dispatch]);
 
-  // const backbtn = () => {
-  //   nav("/");
-  // };
 
   const showDialog = (id) => {
  
@@ -44,21 +42,40 @@ const Table = () => {
     setSelectedUserId(null);
   };
 
-  const handleDelete = (id) => {
-    dispatch(deleteinput(id));
-    setDialogVisible(false);
+  const handleDelete = async (id) => {
+    setLoading(true);
+    try {
+      await dispatch(deleteinput(id));
+      Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Employee detail deleted successfully",
+              showConfirmButton: false,
+              timer: 1800
+            });
+      
+    } catch (error) {
+      console.error('Failed to delete input:', error);
+    } finally {
+      setLoading(false);
+      setDialogVisible(false);
+    }
   };
+  
 
   return (
     <>
     {loading && <Spinner/>}
-      {/* <Nav /> */}
-      <h1 className='list'>Employee List</h1>
+      
       <div className='tablebody'>
       
         <div className="containerTable">
+        
+        <div className='newview'>
+          <h1 className='list'>View Employee</h1>
+          <button  className='newbtn' onClick={handlenew}>+ New</button>
+        </div>
           
-          {/* <h3>Add +</h3> */}
           <table className='stripped-table'>
             <thead>
               <tr>
@@ -91,11 +108,9 @@ const Table = () => {
                   <td>{input.address}</td>
                   <td>{input.bloodgroup}</td>
                   <td>
-                  
-                    {/* <button className='icon-button' onClick={() => handleDelete(input.id)}>
+                
                     
-                    </button> */}
-                    <div className='btned'>
+                    <div className='btnicon'>
                     <Link to={`/form/${input.id}/edit`}>
                       <button className='icon-button s'>
                         <FontAwesomeIcon icon={faEdit} />
@@ -141,11 +156,12 @@ const Table = () => {
               </form>
             </dialog>
           )}
-          {/* <button className='backbtn' onClick={backbtn}>Back</button> */}
         </div>
       </div>
+    
     </>
   );
 };
 
 export default Table;
+

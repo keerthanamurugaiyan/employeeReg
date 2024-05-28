@@ -27,45 +27,53 @@ function Edit() {
     const dispatch = useDispatch();
     const {id} = useParams()
     const inputupdate = useSelector((state) => state.inputs.find(input =>input.id === id));
+    
     const validateInputs = () => {
         let errors = {};
+        const bloodGroupPattern = /^(A|B|AB|O)[+-]$/;
+        const namePattern = /^[A-Za-z\s]+$/;
+    
         if (!employeeid) {
-            errors.employeeid = "Employee ID is required";
+            errors.employeeid = "Employee ID is required!";
         }
         if (!fullName) {
-            errors.fullName = "Full Name is required";
+            errors.fullName = "Full Name is required!";
         } else if (fullName.length < 3) {
-            errors.fullName = "Full Name must be at least 3 characters";
+            errors.fullName = "Full Name must be at least 3 characters!";
+        } else if (!namePattern.test(fullName)) {
+            errors.fullName = "Full Name must contain only letters!";
         }
         if (!email) {
-            errors.email = "Email is required";
+            errors.email = "Email is required!";
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            errors.email = "Please enter a valid email address !";
+            errors.email = "Please enter a valid email address!";
         }
         if (!phonenumber) {
-            errors.phonenumber = "Phone Number is required";
+            errors.phonenumber = "Phone Number is required!";
         } else if (phonenumber.length < 10) {
-            errors.phonenumber = "Phone Number must be at least 10 digits";
+            errors.phonenumber = "Phone Number must be at least 10 digits!";
         }
         if (!joiningdate) {
-            errors.joiningdate = "Joining Date is required";
+            errors.joiningdate = "Joining Date is required!";
         }
         if (!department) {
-            errors.department = "Department is required";
+            errors.department = "Department is required!";
         }
         if (!bloodgroup) {
-            errors.bloodgroup = "Blood Group is required";
+            errors.bloodgroup = "Blood Group is required!";
+        } else if (!bloodGroupPattern.test(bloodgroup)) {
+            errors.bloodgroup = "Please enter a valid blood group (e.g., A+, O-, AB+).";
         }
         if (!position) {
-            errors.position = "Position is required";
+            errors.position = "Position is required!";
         }
         if (!gender) {
-            errors.gender = "Please select a gender";
+            errors.gender = "Please select a gender!";
         }
         if (!address) {
-            errors.address = "Address is required";
+            errors.address = "Address is required!";
         }
-
+    
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
@@ -97,7 +105,7 @@ function Edit() {
         setPosition('');
         setGender('');
         setAddress('');
-        nav("/regtable");
+        nav("/employee/view");
     };}
     useEffect(()=>{
         dispatch(getbyid(id))
@@ -233,7 +241,6 @@ function Edit() {
                                         <label htmlFor="male">Male</label>
                                     </div>
 
-                                    {/* <div> */}
                                         <input className='idn'
                                             id="female"
                                             value="female"
@@ -242,8 +249,7 @@ function Edit() {
                                             checked={gender === 'female'}
                                             onChange={handleGenderChange}  />
                                         <label className='' htmlFor="female">Female</label>
-                                    {/* </div> */}
-                                    {/* <div> */}
+                                    
                                         <input className='idn'
                                             id="other"
                                             value="other"
@@ -252,7 +258,6 @@ function Edit() {
                                             checked={gender === 'other'}
                                             onChange={handleGenderChange}  />
                                         <label htmlFor="other">Other</label>
-                                    {/* </div> */}
                                 </div>
                                 </div>
                                 {errors.gender && <span className="error">{errors.gender}</span>}
@@ -269,7 +274,7 @@ function Edit() {
                                 </div>
                             </div>
 
-                            <button className='regbtn' type="submit">Update</button>
+                            <button className='regbtn update' type="submit">Update</button>
                         </form>
                     </div>
                 </div>
